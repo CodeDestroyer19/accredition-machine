@@ -16,6 +16,10 @@
   font-size: 60px !important;
 }
 
+.Mdfont {
+  font-size: 48px !important;
+}
+
 .insideStyles {
   background: rgb(255, 255, 255);
   padding: 20px;
@@ -30,5 +34,32 @@
 .card {
   padding: 2rem;
   width: fit-content !important;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.445);
+  border: 1px solid var(--text-primary);
+}
+
+.root {
+  min-width: 275;
+  flex-grow: 1;
+}
+.bullet {
+  display: inline-block;
+  margin: 0px 2px;
+  transform: scale(0.8);
+}
+.title {
+  font-size: 14;
+}
+.pos {
+  margin-bottom: 12;
+}
+.iconDiv {
+  width: 100%;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .MainContainer {
+    width: 100%;
+    padding: 1rem;
+  }
 }

@@ -12,6 +12,7 @@ body {
   --tertairy: #0090c1;
   --qaud: #046e8f;
   --qunit: #23ce6b;
+  --text-primary: #d4d4d4;
 }
 
 a {
@@ -49,4 +50,10 @@ a {
 
 main {
   margin-bottom: 8px;
+}
+
+.bgDiv {
+  background-image: url("/spring.jpg") !important;
+  width: 100% !important;
+  height: 500px;
 }

@@ -4,7 +4,7 @@ import Carousel from "react-slick";
 // @material-ui/icons
 import LocationOn from "@material-ui/icons/LocationOn";
 // core components
-import {Grid, Card} from "@material-ui/core";
+import { Grid, Card } from "@material-ui/core";
 import classes from "../styles/Slider.module.scss";
 
 export default function SectionCarousel() {
@@ -20,27 +20,21 @@ export default function SectionCarousel() {
     <div className={classes.section} style={{ padding: "0px" }}>
       <div className={classes.container}>
         <Grid>
-          <Grid item
+          <Grid
+            item
             xs={12}
             className={classes.marginAuto}
             style={{ padding: "0px" }}
           >
-            <Card>
+            <div style={{ overflow: "hidden" }}>
               <Carousel {...settings}>
                 <div>
                   <img
-                    src="/Logo Assets/uma.jpg"
+                    src="/slider/planning.jpg"
                     alt="First slide"
-                    className="slick-image"
+                    className="slickimage"
                   />
-                </div>
-                <div>
-                  <img
-                    src="/Parallex/itcCenter.JPG"
-                    alt="Second slide"
-                    className="slick-image"
-                  />
-                  <div className="slick-caption">
+                  <div className="slickcaption">
                     <h4>
                       <LocationOn className="slick-icons" />
                       Cnr Botha & Mandela Streets, Old Witbank News Buiilding
@@ -50,11 +44,25 @@ export default function SectionCarousel() {
                 </div>
                 <div>
                   <img
-                    src="/Parallex/class.JPG"
-                    alt="Third slide"
-                    className="slick-image"
+                    src="/slider/agreement.jpg"
+                    alt="Second slide"
+                    className="slickimage"
                   />
-                  <div className="slick-caption">
+                  <div className="slickcaption">
+                    <h4>
+                      <LocationOn className="slick-icons" />
+                      Cnr Botha & Mandela Streets, Old Witbank News Buiilding
+                      Town, Emalahleni, 1035
+                    </h4>
+                  </div>
+                </div>
+                <div>
+                  <img
+                    src="/slider/school.jpg"
+                    alt="Third slide"
+                    className="slickimage"
+                  />
+                  <div className="slickcaption">
                     <h4>
                       <LocationOn className="slick-icons" />
                       Examination In session
@@ -62,7 +70,7 @@ export default function SectionCarousel() {
                   </div>
                 </div>
               </Carousel>
-            </Card>
+            </div>
           </Grid>
         </Grid>
       </div>

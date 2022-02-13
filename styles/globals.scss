@@ -57,3 +57,28 @@ main {
   width: 100% !important;
   height: 500px;
 }
+
+.slickimage {
+  width: 100%;
+  height: calc(100vh - 59px);
+  object-fit: cover;
+}
+
+.slickcaption {
+  position: absolute;
+  top: 0px;
+  z-index: 99;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.801);
+  color: white;
+  height: calc(100vh - 59px);
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.slickcaption h4 {
+  width: 70%;
+  margin: auto;
+}

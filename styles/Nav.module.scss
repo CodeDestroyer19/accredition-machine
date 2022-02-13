@@ -8,16 +8,18 @@
   align-items: flex-start !important;
   padding-top: 4px !important;
   padding-bottom: 0px !important;
-  min-height: 100vh !important;
+  height: 100vh !important;
   padding-left: 0px !important;
   padding-right: 0px !important;
   margin: 0px !important;
   display: flex !important;
+  position: sticky !important;
 }
 .title {
   align-self: flex-end !important;
   width: fit-content !important;
   margin: auto 0px !important;
+  font-family: "Staatliches", cursive !important;
 }
 .SecondaryActions {
   display: flex !important;

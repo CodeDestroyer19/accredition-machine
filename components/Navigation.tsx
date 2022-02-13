@@ -6,10 +6,10 @@ import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { Grid } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import classes from "../styles/Nav.module.scss";
 
-import SectionCarousel from './Slider'
+import SectionCarousel from "./Slider";
 
 const Navigation = () => {
   return (
@@ -31,20 +31,19 @@ const Navigation = () => {
               </Typography>
             </Grid>
             <Grid item xs={8} className={classes.SecondaryActions}>
-              <IconButton
-                aria-label="search"
+              <Button
+                aria-label="testimonials"
                 color="inherit"
                 style={{ marginLeft: "auto" }}
               >
-                <SearchIcon />
-              </IconButton>
-              <IconButton
-                aria-label="display more actions"
-                edge="end"
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
+                Testemonials
+              </Button>
+              <Button aria-label="services" color="inherit">
+                Services
+              </Button>
+              <Button aria-label="services" color="inherit">
+                Contact us
+              </Button>
             </Grid>
             <Grid item xs={12} className={classes.slider}>
               <SectionCarousel />

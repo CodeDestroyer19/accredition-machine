@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     cover: {
       width: 150,
-        height: 75,
-      margin: ''
+      height: 75,
+      margin: "",
     },
     testimony: {
       width: "100%",
@@ -56,11 +56,6 @@ export default function MediaControlCard() {
             </Typography>
           </CardContent>
         </div>
-        <CardMedia
-          className={classes.cover}
-          image="/vercel.svg"
-          title="Live from space album cover"
-        />
       </div>
       <div className={classes.testimony}>
         <Typography variant="subtitle1" color="textSecondary">
@@ -69,7 +64,6 @@ export default function MediaControlCard() {
           labore assumenda beatae consequatur ipsa unde iste officia distinctio
           accusantium!
         </Typography>
-        <Button>View On Umalusi</Button>
       </div>
     </Card>
   );

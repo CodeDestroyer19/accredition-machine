@@ -11,7 +11,7 @@ export default function SectionCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 3500,
+    speed: 5500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,

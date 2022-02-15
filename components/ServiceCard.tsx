@@ -17,14 +17,14 @@ const useStyles = makeStyles({
     transform: "scale(0.8)",
   },
   title: {
-    fontSize: 14,
+    fontSize: 18,
   },
   pos: {
     marginBottom: 12,
   },
 });
 
-export default function ServiceCard() {
+export default function ServiceCard({ elem }) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -36,25 +36,21 @@ export default function ServiceCard() {
           color="textSecondary"
           gutterBottom
         >
-          Word of the Day
+          {elem.Servicetype}
         </Typography>
         <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+          {bull}
+          {elem.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          adjective
+          Price: {elem.price}
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
+          {elem.description}
           <br />
           {'"a benevolent smile"'}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" variant="contained" color="secondary">
-          Learn More
-        </Button>
-      </CardActions>
     </Card>
   );
 }

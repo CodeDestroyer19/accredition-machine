@@ -53,7 +53,6 @@ main {
 }
 
 .bgDiv {
-  background-image: url("/spring.jpg") !important;
   width: 100% !important;
   height: 500px;
 }
@@ -81,4 +80,10 @@ main {
 .slickcaption h4 {
   width: 70%;
   margin: auto;
+}
+
+.svgBG {
+  width: 100vw !important;
+  position: relative;
+  left: -5.8%;
 }

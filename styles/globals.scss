@@ -87,3 +87,10 @@ main {
   position: relative;
   left: -5.8%;
 }
+
+.logos {
+  min-width: 100px;
+  max-width: 256px;
+  margin: auto;
+  object-fit: cover;
+}

@@ -219,7 +219,7 @@ export default function Home() {
 
           <hr className="Line" />
 
-          <Grid container spacing={2} justifyContent="space-evenly">
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography
                 variant="h5"

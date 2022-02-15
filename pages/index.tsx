@@ -2,10 +2,17 @@ import React from "react";
 import styles from "../styles/Home.module.scss";
 import Meta from "../components/Meta";
 import Testemoninals from "../components/Testemoninals";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, ListItem, ListItemIcon } from "@material-ui/core";
 import { Parallax, Background } from "react-parallax";
 import IconCard from "../components/IconCard";
-import { Menu, Schedule, Android, People } from "@material-ui/icons";
+import {
+  Menu,
+  Schedule,
+  Android,
+  People,
+  Phone,
+  Email,
+} from "@material-ui/icons";
 import ServiceCard from "../components/ServiceCard";
 import MiscCard from "../components/MiscCards";
 
@@ -203,7 +210,7 @@ export default function Home() {
                 <div className={`${styles.insideStyles} ${styles.card}`}>
                   <Typography className={`${styles.Heading} ${styles.Lgfont}`}>
                     Let's work{" "}
-                    <span style={{ color: "var(--qunit" }}>together</span>
+                    <span style={{ color: "var(--qunit)" }}>together</span>
                   </Typography>
                 </div>
               </div>
@@ -335,23 +342,47 @@ export default function Home() {
             Testimoninals
           </Typography>
           <Testemoninals />
+          <br />
+
           <div className="svgBG">
             <Parallax strength={550}>
               <Background>
                 <img src={polygraph} />
               </Background>
-              <div style={{ height: "100vh" }}>
+              <div style={{ height: "70vh" }}>
                 <div className={`${styles.insideStyles} ${styles.card}`}>
                   <Typography className={`${styles.Heading} ${styles.Lgfont}`}>
                     <span style={{ color: "var(--tertairy" }}>Contact </span> Us
                   </Typography>
+                  <Grid container>
+                    <Grid item xs={12}>
+                      <ListItem button component="a" href="tel:+27 67 028 7206">
+                        <ListItemIcon>
+                          <Phone />
+                        </ListItemIcon>
+                        tel: +27 67 028 7206
+                      </ListItem>
+                      <ListItem
+                        button
+                        component="a"
+                        href="mailto:sparkledigitaladvertisers@gmail.com"
+                      >
+                        <ListItemIcon>
+                          <Email />
+                        </ListItemIcon>
+                        <Typography style={{ wordWrap: "break-word" }} noWrap>
+                          sparkledigitaladvertisers@gmail.com
+                        </Typography>
+                      </ListItem>
+                    </Grid>
+                    <Grid item></Grid>
+                  </Grid>
                 </div>
               </div>
             </Parallax>
           </div>
         </div>
       </div>
-      <br />
     </>
   );
 }

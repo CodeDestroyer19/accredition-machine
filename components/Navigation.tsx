@@ -110,8 +110,11 @@ const Navigation = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ background: "var(--primary)" }}>
-        <Toolbar className={classes.toolbar}>
+      <AppBar position="static">
+        <Toolbar
+          className={classes.toolbar}
+          style={{ background: "var(--primary)" }}
+        >
           <Grid container className={classes.GridCont}>
             <Grid item xs={4} className={classes.PrimaryAction}>
               <SwipeableTemporaryDrawer />
@@ -152,11 +155,13 @@ const Navigation = () => {
                 Contact us
               </Button>
             </Grid>
-            <Grid item xs={12} className={classes.slider}>
-              <SectionCarousel />
-            </Grid>
           </Grid>
         </Toolbar>
+        <Grid container style={{ marginTop: "64px" }}>
+          <Grid item xs={12} className={classes.slider}>
+            <SectionCarousel />
+          </Grid>
+        </Grid>
       </AppBar>
     </div>
   );

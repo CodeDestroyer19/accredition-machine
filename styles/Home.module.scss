@@ -57,6 +57,47 @@
   display: flex;
 }
 
+.navcontainer {
+  padding: 0px 2rem;
+  display: flex;
+}
+
+.testimonialcarddiv {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .testimonialdiv {
+    display: none;
+  }
+
+  .testimonialcarddiv {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LeftnavButton {
+    height: fit-content !important;
+    background-color: var(--primary) !important;
+    z-index: 8;
+    color: var(--qunit) !important;
+    margin: 10px 2.5% 0px auto !important;
+  }
+
+  .RightnavButton {
+    z-index: 8;
+    height: fit-content !important;
+    background-color: var(--primary) !important;
+    margin: 10px auto 0px 2.5% !important;
+    color: var(--qunit) !important;
+  }
+
+  .RightnavButton:disabled svg,
+  .LeftnavButton:disabled svg {
+    color: gray;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .MainContainer {
     padding: 0.5rem;
@@ -69,7 +110,7 @@
     font-size: 2.5em !important;
   }
 
-  .Mdfont{
+  .Mdfont {
     font-size: 3em !important;
   }
 
@@ -77,5 +118,10 @@
     padding: 1.5rem;
     width: fit-content !important;
     border: 1px solid var(--text-primary);
+  }
+
+  .testimonialcarddiv {
+    width: 98% !important;
+    align-content: center;
   }
 }

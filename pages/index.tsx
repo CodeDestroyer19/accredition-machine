@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Home.module.scss";
 import Meta from "../components/Meta";
 import Testemoninals from "../components/Testemoninals";
-import { Typography, Grid, ListItem, ListItemIcon } from "@material-ui/core";
+import { Typography, Grid, ListItem, ListItemIcon,IconButton  } from "@material-ui/core";
 import { Parallax, Background } from "react-parallax";
 import IconCard from "../components/IconCard";
 import {
@@ -12,14 +12,27 @@ import {
   People,
   Phone,
   Email,
+  ArrowLeft, ArrowRight
 } from "@material-ui/icons";
 import ServiceCard from "../components/ServiceCard";
 import MiscCard from "../components/MiscCards";
 
 //Data uris
 import { clouds, animated, polygraph } from "../utils/dataURIs";
+import TestimonialCards from "../components/TestimonialCards";
 
 export default function Home() {
+  const [load, SetLoad] = React.useState(1);
+  const [initload, SetInitload] = React.useState( 0 );
+  const Testemoninalslist = [
+    { nameof: "Tina", testement: "", schoolname: "Easy English" },
+    { nameof: "name", testement: "", schoolname: "Vaal techincal" },
+    { nameof: "name", testement: "", schoolname: "SAFIIT" },
+    { nameof: "name", testement: "", schoolname: "Mechatronics Acedemy" },
+    { nameof: "name", testement: "", schoolname: "MJR Training" },
+    { nameof: "name", testement: "", schoolname: "Sandton Technical" },
+  ]
+  
   return (
     <>
       <Meta title="Accreditaion Machine" description="" />
@@ -204,7 +217,44 @@ export default function Home() {
             >
               Testimoninals
             </Typography>
-            <Testemoninals />
+            
+            <div className={styles.testimonialdiv}>
+            <Testemoninals Testemoninalslist={Testemoninalslist} />
+              </div>
+              <div className={styles.testimonialcarddiv}>
+                {Testemoninalslist.slice(initload, load).map((elem, index) => {
+                  return (
+                    <TestimonialCards
+                      key={`Testicard-no#${index}`}
+                      elem={elem}
+                    />
+                  );
+                })}
+                <div className={styles.navcontainer}>
+                  <IconButton
+                    disabled={initload === 0 ? true : false}
+                    onClick={() => {
+                      SetLoad(prev => prev - 1);
+                      SetInitload(prev => prev - 1);
+                    }}
+                    className={styles.LeftnavButton}
+                    role="Testemonial Navigate Left Button"
+                  >
+                    <ArrowLeft />
+                  </IconButton>
+                  <IconButton
+                    disabled={Testemoninalslist.length === load ? true : false}
+                    onClick={() => {
+                      SetLoad(prev => prev + 1);
+                      SetInitload(prev => prev + 1);
+                    }}
+                    className={styles.RightnavButton}
+                    role="Testemonial Navigate right Button"
+                  >
+                    <ArrowRight />
+                  </IconButton>
+                </div>
+              </div>
             <br />
           </div>
 

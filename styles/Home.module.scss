@@ -13,7 +13,7 @@
 }
 
 .Lgfont {
-  font-size: 60px !important;
+  font-size: 4em !important;
 }
 
 .Mdfont {
@@ -59,7 +59,19 @@
 
 @media only screen and (max-width: 600px) {
   .MainContainer {
+    padding: 0.5rem;
     width: 100%;
-    padding: 1rem;
+    margin: 0px;
+    padding-bottom: 0px;
+  }
+
+  .Lgfont {
+    font-size: 2.5em !important;
+  }
+
+  .card {
+    padding: 1.5rem;
+    width: fit-content !important;
+    border: 1px solid var(--text-primary);
   }
 }

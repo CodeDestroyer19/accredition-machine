@@ -1,9 +1,12 @@
 .root {
   flex-grow: 1 !important;
 }
-.menuButton {
+.menuButton,
+.titlemobile {
   margin-right: 8px !important;
+  display: none !important;
 }
+
 .toolbar {
   align-items: flex-start !important;
   padding-top: 4px !important;
@@ -15,7 +18,8 @@
   display: flex !important;
   position: sticky !important;
 }
-.title {
+.title,
+.titlemobile {
   align-self: flex-end !important;
   width: fit-content !important;
   margin: auto 0px !important;
@@ -38,4 +42,15 @@
   display: flex !important;
   flex-grow: 1 !important;
   height: 100% !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .menuButton,
+  .titlemobile {
+    display: inline-flex !important;
+  }
+  .title,
+  .SecondaryActions {
+    display: none !important;
+  }
 }

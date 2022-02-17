@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -89,4 +93,10 @@ a {
   max-width: 256px;
   margin: auto;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+  .svgBG {
+    left: -2%;
+  }
 }

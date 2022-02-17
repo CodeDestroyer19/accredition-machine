@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function MediaControlCard() {
+export default function MediaControlCard({ elem }) {
   const classes = useStyles();
 
   return (
@@ -49,20 +49,17 @@ export default function MediaControlCard() {
         <div className={classes.details}>
           <CardContent className={classes.content}>
             <Typography component="h6" variant="h6">
-              Live From Space
+              {elem.nameof}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
-              Mac Miller
+              {elem.schoolname}
             </Typography>
           </CardContent>
         </div>
       </div>
       <div className={classes.testimony}>
         <Typography variant="subtitle1" color="textSecondary">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum modi
-          quidem ut unde culpa accusantium ad inventore. Qui, esse. Quidem
-          labore assumenda beatae consequatur ipsa unde iste officia distinctio
-          accusantium!
+          {elem.testement}
         </Typography>
       </div>
     </Card>

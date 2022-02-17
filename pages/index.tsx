@@ -199,6 +199,16 @@ export default function Home() {
                 );
               })}
             </Grid>
+            <Typography
+              variant="h5"
+              className={`${styles.Heading} ${styles.Mdfont}`}
+              align="center"
+              id="testimoninals"
+            >
+              Testimoninals
+            </Typography>
+            <Testemoninals />
+            <br />
           </div>
 
           <div className="svgBG">
@@ -219,7 +229,7 @@ export default function Home() {
 
           <hr className="Line" />
 
-          <Grid container spacing={2}>
+          <Grid container spacing={2} id="services">
             <Grid item xs={12}>
               <Typography
                 variant="h5"
@@ -334,16 +344,6 @@ export default function Home() {
           </Grid>
           <hr className="Line" />
 
-          <Typography
-            variant="h5"
-            className={`${styles.Heading} ${styles.Mdfont}`}
-            align="left"
-          >
-            Testimoninals
-          </Typography>
-          <Testemoninals />
-          <br />
-
           <div className="svgBG">
             <Parallax strength={550}>
               <Background>
@@ -352,7 +352,10 @@ export default function Home() {
               <div style={{ height: "70vh" }}>
                 <div className={`${styles.insideStyles} ${styles.card}`}>
                   <Typography className={`${styles.Heading} ${styles.Lgfont}`}>
-                    <span style={{ color: "var(--tertairy" }}>Contact </span> Us
+                    <span style={{ color: "var(--tertairy" }} id="contactus">
+                      Contact{" "}
+                    </span>{" "}
+                    Us
                   </Typography>
                   <Grid container>
                     <Grid item xs={12}>

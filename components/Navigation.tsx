@@ -56,7 +56,6 @@ const Navigation = () => {
 
     const list = () => (
       <Box
-        sx={{ width: 250 }}
         role="presentation"
         onClick={toggleDrawer("left", false)}
         onKeyDown={toggleDrawer("left", false)}
@@ -69,6 +68,7 @@ const Navigation = () => {
           ].map((text, index) => (
             <ListItem
               button
+              style={{width: 250}}
               key={text.label + index}
               onClick={() => {
                 scrollTo(text.func);

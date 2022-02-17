@@ -61,6 +61,8 @@ main {
   width: 100%;
   height: calc(100vh - 59px);
   object-fit: cover;
+  image-rendering: auto;
+  content-visibility: auto;
 }
 
 .slickcaption {
@@ -79,7 +81,15 @@ main {
 
 .slickcaption h4 {
   width: 70%;
-  margin: auto;
+  margin: 0px auto auto auto;
+  align-self: center;
+  text-align: center;
+  font-size: 22px;
+}
+
+.slickicons {
+  font-size: 48px !important;
+  margin: auto auto 0px auto !important;
 }
 
 .svgBG {

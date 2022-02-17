@@ -53,4 +53,12 @@
   .SecondaryActions {
     display: none !important;
   }
+
+  .toolbar {
+    height: 60vh !important;
+  }
+
+  .slider {
+    height: calc(70vh - 58px) !important;
+  }
 }

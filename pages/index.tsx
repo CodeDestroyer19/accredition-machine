@@ -31,10 +31,7 @@ export default function Home() {
             </Background>
             <div style={{ height: "100vh" }}>
               <div className={`${styles.insideStyles} ${styles.card}`}>
-                <p
-                  className={styles.Heading}
-                  style={{ fontSize: "48px", margin: "0px", padding: "0px" }}
-                >
+                <p className={`${styles.Heading} ${styles.Mdfont}`}>
                   We are an Accreditation Digital agency
                 </p>
                 <Typography variant="h6" align="center">

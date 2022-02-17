@@ -16,8 +16,8 @@ body {
 }
 
 img {
-  image-rendering: auto;
-  content-visibility: auto;
+  image-rendering: auto !important;
+  content-visibility: visible !important;
 }
 
 a {

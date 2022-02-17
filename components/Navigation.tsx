@@ -17,7 +17,7 @@ import {
 } from "@material-ui/core";
 import classes from "../styles/Nav.module.scss";
 
-import SectionCarousel from "./Slider";
+import dynamic from "next/dynamic";
 
 const Navigation = () => {
   const scrollTo = ele => {
@@ -68,7 +68,7 @@ const Navigation = () => {
           ].map((text, index) => (
             <ListItem
               button
-              style={{width: 250}}
+              style={{ width: 250 }}
               key={text.label + index}
               onClick={() => {
                 scrollTo(text.func);
@@ -105,6 +105,8 @@ const Navigation = () => {
       </div>
     );
   }
+
+  const SectionCarousel = dynamic(() => import("./Slider"));
 
   return (
     <div className={classes.root}>

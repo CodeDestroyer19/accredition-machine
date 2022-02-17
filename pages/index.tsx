@@ -57,7 +57,7 @@ export default function Home() {
                 <Typography variant="h6" align="center">
                   We also specialize in registering companies and more!
                 </Typography>
-                <div
+                {/* <div
                   style={{
                     position: "absolute",
                     width: "100%",
@@ -73,7 +73,7 @@ export default function Home() {
                   <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
                   <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
                   <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
-                </div>
+                </div> */}
               </div>
             </div>
           </Parallax>

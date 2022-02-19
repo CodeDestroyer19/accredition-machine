@@ -90,7 +90,7 @@ export default function Home() {
             <br />
             <VisibilitySensor
               onChange={isVisible => {
-                setInProp(true);
+                setInProp(isVisible);
               }}
             >
               <Grid
@@ -302,125 +302,120 @@ export default function Home() {
           </div>
 
           <hr className="Line" />
-          {/* <VisibilitySensor
-            onChange={isVisible => {
-              setInProp(isVisible);
-            }}
-          > */}
-            <Grid container spacing={2} id="services">
-              <Grid item xs={12}>
-                <Typography
-                  variant="h5"
-                  className={`${styles.Heading} ${styles.Mdfont}`}
-                  align="center"
-                >
-                  Accreditation Services
-                </Typography>
-              </Grid>
-              {[
-                {
-                  title: "Umalusi Accreditation",
-                  description: "",
-                  price: "R25,000",
-                  Servicetype: "Accreditation",
-                },
-                {
-                  title: "QCTO Accreditation",
-                  description: "",
-                  price: "R15,000",
-                  Servicetype: "Accreditation",
-                },
-                {
-                  title: "SETA Programme Accreditation",
-                  description: "",
-                  price: "R5,000 per programme",
-                  Servicetype: "Accreditation",
-                },
-              ].map((elem, index) => {
-                return (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={4}
-                    key={`Service-item-#no${index}`}
-                  >
-                    <ServiceCard elem={elem} />
-                  </Grid>
-                );
-              })}
-              <Grid item xs={12}>
-                <Typography
-                  variant="h5"
-                  className={`${styles.Heading} ${styles.Mdfont}`}
-                  align="center"
-                >
-                  Registrations
-                </Typography>
-              </Grid>
-              {[
-                {
-                  title: "CSD with Teasury Registration",
-                  description: "",
-                  price: "R2,000",
-                  Servicetype: "Registration",
-                },
-                {
-                  title: "Company Registration",
-                  description: "",
-                  price: "R1,800",
-                  Servicetype: "Registration",
-                },
-              ].map((elem, index) => {
-                return (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={6}
-                    key={`Service-item-#no${index}`}
-                  >
-                    <ServiceCard elem={elem} />
-                  </Grid>
-                );
-              })}
-              <Grid item xs={12}>
-                <Typography
-                  variant="h5"
-                  className={`${styles.Heading} ${styles.Mdfont}`}
-                  align="center"
-                >
-                  Other Services
-                </Typography>
-              </Grid>
-              {[
-                {
-                  title: "Tax Clearance",
-                  description: "",
-                  price: "R2,000",
-                  Servicetype: "Accreditation",
-                },
-                {
-                  title: "Acquisition of SARS report",
-                  description: "",
-                  price: "R1,500",
-                  Servicetype: "Accreditation",
-                },
-              ].map((elem, index) => {
-                return (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    lg={6}
-                    key={`Service-item-#no${index}`}
-                  >
-                    <ServiceCard elem={elem} />
-                  </Grid>
-                );
-              })}
+
+          <Grid container spacing={2} id="services">
+            <Grid item xs={12}>
+              <Typography
+                variant="h5"
+                className={`${styles.Heading} ${styles.Mdfont}`}
+                align="center"
+              >
+                Accreditation Services
+              </Typography>
             </Grid>
-          {/* </VisibilitySensor> */}
+            {[
+              {
+                title: "Umalusi Accreditation",
+                description: "",
+                price: "R25,000",
+                Servicetype: "Accreditation",
+              },
+              {
+                title: "QCTO Accreditation",
+                description: "",
+                price: "R15,000",
+                Servicetype: "Accreditation",
+              },
+              {
+                title: "SETA Programme Accreditation",
+                description: "",
+                price: "R5,000 per programme",
+                Servicetype: "Accreditation",
+              },
+            ].map((elem, index) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  lg={4}
+                  key={`Service-item-#no${index}`}
+                >
+                  <ServiceCard elem={elem} />
+                </Grid>
+              );
+            })}
+            <Grid item xs={12}>
+              <Typography
+                variant="h5"
+                className={`${styles.Heading} ${styles.Mdfont}`}
+                align="center"
+              >
+                Registrations
+              </Typography>
+            </Grid>
+            {[
+              {
+                title: "CSD with Teasury Registration",
+                description: "",
+                price: "R2,000",
+                Servicetype: "Registration",
+              },
+              {
+                title: "Company Registration",
+                description: "",
+                price: "R1,800",
+                Servicetype: "Registration",
+              },
+            ].map((elem, index) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  lg={6}
+                  key={`Service-item-#no${index}`}
+                >
+                  <ServiceCard elem={elem} />
+                </Grid>
+              );
+            })}
+            <Grid item xs={12}>
+              <Typography
+                variant="h5"
+                className={`${styles.Heading} ${styles.Mdfont}`}
+                align="center"
+              >
+                Other Services
+              </Typography>
+            </Grid>
+            {[
+              {
+                title: "Tax Clearance",
+                description: "",
+                price: "R2,000",
+                Servicetype: "Accreditation",
+              },
+              {
+                title: "Acquisition of SARS report",
+                description: "",
+                price: "R1,500",
+                Servicetype: "Accreditation",
+              },
+            ].map((elem, index) => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  lg={6}
+                  key={`Service-item-#no${index}`}
+                >
+                  <ServiceCard elem={elem} />
+                </Grid>
+              );
+            })}
+          </Grid>
           <hr className="Line" />
 
           <div className="svgBG">

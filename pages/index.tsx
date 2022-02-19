@@ -23,14 +23,24 @@ import {
 } from "@material-ui/icons";
 import ServiceCard from "../components/ServiceCard";
 import MiscCard from "../components/MiscCards";
+import TestimonialCards from "../components/TestimonialCards";
+import { Transition } from "react-transition-group";
 
+import VisibilitySensor from "react-visibility-sensor";
 //Data uris
 import { clouds, animated, polygraph } from "../utils/dataURIs";
-import TestimonialCards from "../components/TestimonialCards";
 
 export default function Home() {
   const [load, SetLoad] = React.useState(1);
   const [initload, SetInitload] = React.useState(0);
+  const [inProp, setInProp] = React.useState(false);
+  const transitionStyles = {
+    entering: { opacity: 1, transform: `translate(0px,0px)` },
+    entered: { opacity: 1, transform: `translate(0px,0px)` },
+    exiting: { opacity: 0, transform: `translate(0px,-150px)` },
+    exited: { opacity: 0, transform: `translate(0px,-150px)` },
+  };
+
   const Testemoninalslist = [
     { nameof: "Tina", testement: "", schoolname: "Easy English" },
     { nameof: "name", testement: "", schoolname: "Vaal techincal" },
@@ -64,23 +74,6 @@ export default function Home() {
                 <Typography variant="h6" align="center">
                   We also specialize in registering companies and more!
                 </Typography>
-                {/* <div
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    background: "transparent",
-                    left: 0,
-                    top: "90%",
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: "0px 20px",
-                    justifyContent: "center",
-                  }}
-                >
-                  <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
-                  <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
-                  <IconCard image={<Menu style={{ fontSize: "48px" }} />} />
-                </div> */}
               </div>
             </div>
           </Parallax>
@@ -95,85 +88,112 @@ export default function Home() {
               We are leaders in Accerditation
             </Typography>
             <br />
-            <Grid xs={12} item container spacing={2} style={{ margin: "0px" }}>
-              {[
-                {
-                  title: "10 years of experience",
-                  list: [
-                    "Accredited more than 30 institutions",
-                    "Worked with kindergartens to universities",
-                    "Registered more than 20 companies and counting",
-                    "We link providers to accredited learning material developers",
-                    "We outsource assessors/moderators to providrs who need them",
-                  ],
-                  icon: (
-                    <Schedule
-                      color="secondary"
-                      style={{
-                        fontSize: "144px",
-                        margin: "0px auto",
-                        padding: "0px 0px 15px 0px",
-                      }}
-                    />
-                  ),
-                },
-                {
-                  title: "Software powered accreditation",
-                  list: [
-                    "Smart technology, powering our accreditation process",
-                    "Quick delivery for accreditation processes",
-                    "Little to no room for errors",
-                    "Our software is tried and tested to assure maximum performance",
-                  ],
-                  icon: (
-                    <Android
-                      style={{
-                        fontSize: "144px",
-                        margin: "0px auto",
-                        padding: "0px 0px 15px 0px",
-                        color: "var(--qunit)",
-                      }}
-                    />
-                  ),
-                },
-                {
-                  title: "Customer Service you won’t find anywhere else",
-                  list: [
-                    `A dedicated team who’ll address your queries`,
-                    "All-round customer support",
-                    "Frequent updates on your service progress",
-                    "Mentorship to entrepreneurs who buy educational franchises intending to exist",
-                  ],
-                  icon: (
-                    <People
-                      color="primary"
-                      style={{
-                        fontSize: "144px",
-                        margin: "0px auto",
-                        padding: "0px 0px 15px 0px",
-                      }}
-                    />
-                  ),
-                },
-              ].map((elem, index) => {
-                return (
-                  <Grid
-                    item
-                    xs={12}
-                    lg={4}
-                    key={`Meta-info-#no${index}`}
-                    style={{ display: "flex" }}
-                  >
-                    <MiscCard
-                      icon={elem.icon}
-                      classes={styles}
-                      title={elem.title}
-                      list={elem.list}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
+            <VisibilitySensor
+              onChange={isVisible => {
+                setInProp(true);
+              }}
+            >
+              <Grid
+                xs={12}
+                item
+                container
+                spacing={2}
+                style={{ margin: "0px" }}
+              >
+                {[
+                  {
+                    title: "10 years of experience",
+                    list: [
+                      "Accredited more than 30 institutions",
+                      "Worked with kindergartens to universities",
+                      "Registered more than 20 companies and counting",
+                      "We link providers to accredited learning material developers",
+                      "We outsource assessors/moderators to providrs who need them",
+                    ],
+                    icon: (
+                      <Schedule
+                        color="secondary"
+                        style={{
+                          fontSize: "144px",
+                          margin: "0px auto",
+                          padding: "0px 0px 15px 0px",
+                        }}
+                      />
+                    ),
+                  },
+                  {
+                    title: "Software powered accreditation",
+                    list: [
+                      "Smart technology, powering our accreditation process",
+                      "Quick delivery for accreditation processes",
+                      "Little to no room for errors",
+                      "Our software is tried and tested to assure maximum performance",
+                    ],
+                    icon: (
+                      <Android
+                        style={{
+                          fontSize: "144px",
+                          margin: "0px auto",
+                          padding: "0px 0px 15px 0px",
+                          color: "var(--qunit)",
+                        }}
+                      />
+                    ),
+                  },
+                  {
+                    title: "Customer Service you won’t find anywhere else",
+                    list: [
+                      `A dedicated team who’ll address your queries`,
+                      "All-round customer support",
+                      "Frequent updates on your service progress",
+                      "Mentorship to entrepreneurs who buy educational franchises intending to exist",
+                    ],
+                    icon: (
+                      <People
+                        color="primary"
+                        style={{
+                          fontSize: "144px",
+                          margin: "0px auto",
+                          padding: "0px 0px 15px 0px",
+                        }}
+                      />
+                    ),
+                  },
+                ].map((elem, index) => {
+                  return (
+                    <Grid
+                      item
+                      xs={12}
+                      lg={4}
+                      key={`Meta-info-#no${index}`}
+                      style={{ display: "flex" }}
+                    >
+                      <Transition in={inProp} timeout={300 * (index + 3)}>
+                        {state => (
+                          <div
+                            style={{
+                              transition: `all ${
+                                300 * (index + 3)
+                              }ms ease-in-out`,
+                              opacity: 0,
+                              transform: `translate(0px, 0px)`,
+                              ...transitionStyles[state],
+                            }}
+                          >
+                            <MiscCard
+                              icon={elem.icon}
+                              classes={styles}
+                              title={elem.title}
+                              list={elem.list}
+                            />
+                          </div>
+                        )}
+                      </Transition>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </VisibilitySensor>
           </Grid>
 
           <div style={{ margin: "30px 0px" }}>
@@ -282,120 +302,125 @@ export default function Home() {
           </div>
 
           <hr className="Line" />
-
-          <Grid container spacing={2} id="services">
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Accreditation Services
-              </Typography>
-            </Grid>
-            {[
-              {
-                title: "Umalusi Accreditation",
-                description: "",
-                price: "R25,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "QCTO Accreditation",
-                description: "",
-                price: "R15,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "SETA Programme Accreditation",
-                description: "",
-                price: "R5,000 per programme",
-                Servicetype: "Accreditation",
-              },
-            ].map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={4}
-                  key={`Service-item-#no${index}`}
+          {/* <VisibilitySensor
+            onChange={isVisible => {
+              setInProp(isVisible);
+            }}
+          > */}
+            <Grid container spacing={2} id="services">
+              <Grid item xs={12}>
+                <Typography
+                  variant="h5"
+                  className={`${styles.Heading} ${styles.Mdfont}`}
+                  align="center"
                 >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Registrations
-              </Typography>
-            </Grid>
-            {[
-              {
-                title: "CSD with Teasury Registration",
-                description: "",
-                price: "R2,000",
-                Servicetype: "Registration",
-              },
-              {
-                title: "Company Registration",
-                description: "",
-                price: "R1,800",
-                Servicetype: "Registration",
-              },
-            ].map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={6}
-                  key={`Service-item-#no${index}`}
+                  Accreditation Services
+                </Typography>
+              </Grid>
+              {[
+                {
+                  title: "Umalusi Accreditation",
+                  description: "",
+                  price: "R25,000",
+                  Servicetype: "Accreditation",
+                },
+                {
+                  title: "QCTO Accreditation",
+                  description: "",
+                  price: "R15,000",
+                  Servicetype: "Accreditation",
+                },
+                {
+                  title: "SETA Programme Accreditation",
+                  description: "",
+                  price: "R5,000 per programme",
+                  Servicetype: "Accreditation",
+                },
+              ].map((elem, index) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={4}
+                    key={`Service-item-#no${index}`}
+                  >
+                    <ServiceCard elem={elem} />
+                  </Grid>
+                );
+              })}
+              <Grid item xs={12}>
+                <Typography
+                  variant="h5"
+                  className={`${styles.Heading} ${styles.Mdfont}`}
+                  align="center"
                 >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Other Services
-              </Typography>
-            </Grid>
-            {[
-              {
-                title: "Tax Clearance",
-                description: "",
-                price: "R2,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "Acquisition of SARS report",
-                description: "",
-                price: "R1,500",
-                Servicetype: "Accreditation",
-              },
-            ].map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={6}
-                  key={`Service-item-#no${index}`}
+                  Registrations
+                </Typography>
+              </Grid>
+              {[
+                {
+                  title: "CSD with Teasury Registration",
+                  description: "",
+                  price: "R2,000",
+                  Servicetype: "Registration",
+                },
+                {
+                  title: "Company Registration",
+                  description: "",
+                  price: "R1,800",
+                  Servicetype: "Registration",
+                },
+              ].map((elem, index) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={6}
+                    key={`Service-item-#no${index}`}
+                  >
+                    <ServiceCard elem={elem} />
+                  </Grid>
+                );
+              })}
+              <Grid item xs={12}>
+                <Typography
+                  variant="h5"
+                  className={`${styles.Heading} ${styles.Mdfont}`}
+                  align="center"
                 >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-          </Grid>
+                  Other Services
+                </Typography>
+              </Grid>
+              {[
+                {
+                  title: "Tax Clearance",
+                  description: "",
+                  price: "R2,000",
+                  Servicetype: "Accreditation",
+                },
+                {
+                  title: "Acquisition of SARS report",
+                  description: "",
+                  price: "R1,500",
+                  Servicetype: "Accreditation",
+                },
+              ].map((elem, index) => {
+                return (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    lg={6}
+                    key={`Service-item-#no${index}`}
+                  >
+                    <ServiceCard elem={elem} />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          {/* </VisibilitySensor> */}
           <hr className="Line" />
 
           <div className="svgBG">
@@ -435,7 +460,6 @@ export default function Home() {
                         </Typography>
                       </ListItem>
                     </Grid>
-                    <Grid item></Grid>
                   </Grid>
                 </div>
               </div>

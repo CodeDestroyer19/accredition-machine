@@ -32,6 +32,7 @@ export default function Home() {
   const [load, SetLoad] = React.useState(1);
   const [initload, SetInitload] = React.useState(0);
   const [inProp, setInProp] = React.useState(false);
+  const [inProp2, setInProp2] = React.useState(false);
 
   return (
     <>
@@ -65,17 +66,21 @@ export default function Home() {
         <hr className="Line" />
 
         <div className={styles.Services}>
-          <Grid>
-            <br />
-            <Typography className={`${styles.Heading} ${styles.Mdfont}`}>
-              We are leaders in Accerditation
-            </Typography>
-            <br />
-            <VisibilitySensor
-              onChange={isVisible => {
-                setInProp(isVisible);
-              }}
-            >
+          <VisibilitySensor
+            onChange={isVisible => {
+              setInProp(
+                typeof window !== "undefined" && window.innerWidth < 1600
+                  ? true
+                  : isVisible
+              );
+            }}
+          >
+            <Grid>
+              <br />
+              <Typography className={`${styles.Heading} ${styles.Mdfont}`}>
+                We are leaders in Accerditation
+              </Typography>
+              <br />
               <Grid
                 xs={12}
                 item
@@ -88,6 +93,7 @@ export default function Home() {
                     <Grid
                       item
                       xs={12}
+                      sm={6}
                       lg={4}
                       key={`Meta-info-#no${index}`}
                       style={{ display: "flex" }}
@@ -117,8 +123,8 @@ export default function Home() {
                   );
                 })}
               </Grid>
-            </VisibilitySensor>
-          </Grid>
+            </Grid>
+          </VisibilitySensor>
 
           <div style={{ margin: "30px 0px" }}>
             <Grid container>
@@ -151,6 +157,7 @@ export default function Home() {
                 );
               })}
             </Grid>
+
             <Typography
               variant="h5"
               className={`${styles.Heading} ${styles.Mdfont}`}
@@ -218,74 +225,93 @@ export default function Home() {
 
           <hr className="Line" />
 
-          <Grid container spacing={2} id="services">
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Accreditation Services
-              </Typography>
-            </Grid>
-            {serviceData.first.map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={4}
-                  key={`Service-item-#no${index}`}
+          <VisibilitySensor
+            onChange={isVisible => {
+              setInProp2(true);
+            }}
+          >
+            <Transition in={inProp2} timeout={900}>
+              {state => (
+                <div
+                  style={{
+                    transition: `all ${900}ms ease-in-out`,
+                    opacity: 0,
+                    transform: `translate(0px, 0px)`,
+                    ...transitionStyles[state],
+                  }}
                 >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Registrations
-              </Typography>
-            </Grid>
-            {serviceData.second.map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={6}
-                  key={`Service-item-#no${index}`}
-                >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-            <Grid item xs={12}>
-              <Typography
-                variant="h5"
-                className={`${styles.Heading} ${styles.Mdfont}`}
-                align="center"
-              >
-                Other Services
-              </Typography>
-            </Grid>
-            {serviceData.third.map((elem, index) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  lg={6}
-                  key={`Service-item-#no${index}`}
-                >
-                  <ServiceCard elem={elem} />
-                </Grid>
-              );
-            })}
-          </Grid>
+                  <Grid container spacing={2} id="services">
+                    <Grid item xs={12}>
+                      <Typography
+                        variant="h5"
+                        className={`${styles.Heading} ${styles.Mdfont}`}
+                        align="center"
+                      >
+                        Accreditation Services
+                      </Typography>
+                    </Grid>
+                    {serviceData.first.map((elem, index) => {
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          lg={4}
+                          key={`Service-item-#no${index}`}
+                        >
+                          <ServiceCard elem={elem} />
+                        </Grid>
+                      );
+                    })}
+                    <Grid item xs={12}>
+                      <Typography
+                        variant="h5"
+                        className={`${styles.Heading} ${styles.Mdfont}`}
+                        align="center"
+                      >
+                        Registrations
+                      </Typography>
+                    </Grid>
+                    {serviceData.second.map((elem, index) => {
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          lg={6}
+                          key={`Service-item-#no${index}`}
+                        >
+                          <ServiceCard elem={elem} />
+                        </Grid>
+                      );
+                    })}
+                    <Grid item xs={12}>
+                      <Typography
+                        variant="h5"
+                        className={`${styles.Heading} ${styles.Mdfont}`}
+                        align="center"
+                      >
+                        Other Services
+                      </Typography>
+                    </Grid>
+                    {serviceData.third.map((elem, index) => {
+                      return (
+                        <Grid
+                          item
+                          xs={12}
+                          sm={6}
+                          lg={6}
+                          key={`Service-item-#no${index}`}
+                        >
+                          <ServiceCard elem={elem} />
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </div>
+              )}
+            </Transition>
+          </VisibilitySensor>
           <hr className="Line" />
 
           <div className="svgBG">
@@ -293,7 +319,7 @@ export default function Home() {
               <Background>
                 <img src={polygraph} />
               </Background>
-              <div style={{ height: "70vh" }}>
+              <div style={{ height: "80vh" }}>
                 <div
                   className={`${styles.insideStyles} ${styles.card}`}
                   style={{ top: "50%", left: "50%" }}
@@ -306,11 +332,11 @@ export default function Home() {
                   </Typography>
                   <Grid container>
                     <Grid item xs={12}>
-                      <ListItem button component="a" href="tel:+27 67 028 7206">
+                      <ListItem button component="a" href="tel:+27 73 531 7061">
                         <ListItemIcon>
                           <Phone />
                         </ListItemIcon>
-                        tel: +27 67 028 7206
+                        tel: +27 73 531 7061
                       </ListItem>
                       <ListItem
                         button

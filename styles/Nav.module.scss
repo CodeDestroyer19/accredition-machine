@@ -27,10 +27,16 @@
   margin: auto 0px !important;
   font-family: "Staatliches", cursive !important;
 }
-.SecondaryActions {
+.SecondaryActions,
+.navButtons {
   display: flex !important;
   padding-right: 24px !important;
 }
+
+.navButtons {
+  margin-left: auto;
+}
+
 .PrimaryAction {
   display: flex !important;
   padding-left: 24px !important;
@@ -52,11 +58,18 @@
     display: inline-flex !important;
   }
   .title,
-  .SecondaryActions {
+  .navButtons {
     display: none !important;
   }
 
   .slider {
     height: calc(70vh - 58px) !important;
+  }
+
+  .PrimaryAction {
+    width: 100% !important;
+  }
+  .titlemobile {
+    margin-left: auto !important;
   }
 }

@@ -121,39 +121,41 @@ const Navigation = () => {
               <Typography className={classes.title} variant="h6" noWrap>
                 Accreditaion Machine
               </Typography>
-              <Typography className={classes.titlemobile} variant="h6" noWrap>
-                A.M
-              </Typography>
             </Grid>
             <Grid item xs={8} className={classes.SecondaryActions}>
-              <Button
-                aria-label="testimonials"
-                color="inherit"
-                style={{ marginLeft: "auto" }}
-                onClick={() => {
-                  scrollTo("testimoninals");
-                }}
-              >
-                Testemonials
-              </Button>
-              <Button
-                aria-label="services"
-                color="inherit"
-                onClick={() => {
-                  scrollTo("services");
-                }}
-              >
-                Services
-              </Button>
-              <Button
-                aria-label="services"
-                color="inherit"
-                onClick={() => {
-                  scrollTo("contactus");
-                }}
-              >
-                Contact us
-              </Button>
+              <div className={classes.navButtons}>
+                <Button
+                  aria-label="testimonials"
+                  color="inherit"
+                  style={{ marginLeft: "auto" }}
+                  onClick={() => {
+                    scrollTo("testimoninals");
+                  }}
+                >
+                  Testemonials
+                </Button>
+                <Button
+                  aria-label="services"
+                  color="inherit"
+                  onClick={() => {
+                    scrollTo("services");
+                  }}
+                >
+                  Services
+                </Button>
+                <Button
+                  aria-label="services"
+                  color="inherit"
+                  onClick={() => {
+                    scrollTo("contactus");
+                  }}
+                >
+                  Contact us
+                </Button>
+              </div>
+              <Typography className={classes.titlemobile} variant="h6" noWrap>
+                Accreditaion Machine
+              </Typography>
             </Grid>
           </Grid>
         </Toolbar>

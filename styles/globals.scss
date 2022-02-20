@@ -137,14 +137,17 @@ main {
   object-fit: cover;
 }
 
+.services {
+  min-height: 100vh;
+}
+
 @media only screen and (max-width: 600px) {
   .svgBG {
     left: -2.3%;
   }
 
   .gif {
-    width: 300px;
-    left: 50% !important;
+    display: none !important;
   }
 
   .slickcaption h4 {

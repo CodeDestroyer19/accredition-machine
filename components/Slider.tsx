@@ -31,10 +31,7 @@ export default function SectionCarousel() {
             <div style={{ overflow: "hidden" }}>
               <Carousel {...settings}>
                 <div>
-                  <div
-                    className="slickimage"
-                    style={{ backgroundColor: "red" }}
-                  />
+                  <div className="slickimage" />
                   <div className="slickcaption">
                     <Star className="slickicons" style={{ color: "gold" }} />
                     <img
@@ -49,10 +46,7 @@ export default function SectionCarousel() {
                   </div>
                 </div>
                 <div>
-                  <div
-                    className="slickimage"
-                    style={{ backgroundColor: "green" }}
-                  />
+                  <div className="slickimage" />
                   <div className="slickcaption">
                     <People
                       className="slickicons"
@@ -71,10 +65,7 @@ export default function SectionCarousel() {
                 </div>
 
                 <div>
-                  <div
-                    className="slickimage"
-                    style={{ backgroundColor: "gold" }}
-                  />
+                  <div className="slickimage" />
                   <div className="slickcaption">
                     <CheckCircleOutline
                       className="slickicons"

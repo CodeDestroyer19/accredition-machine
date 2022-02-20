@@ -10,45 +10,28 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { Parallax, Background } from "react-parallax";
-import IconCard from "../components/IconCard";
-import {
-  Menu,
-  Schedule,
-  Android,
-  People,
-  Phone,
-  Email,
-  ArrowLeft,
-  ArrowRight,
-} from "@material-ui/icons";
+import { Phone, Email, ArrowLeft, ArrowRight } from "@material-ui/icons";
 import ServiceCard from "../components/ServiceCard";
 import MiscCard from "../components/MiscCards";
 import TestimonialCards from "../components/TestimonialCards";
 import { Transition } from "react-transition-group";
 
 import VisibilitySensor from "react-visibility-sensor";
+
 //Data uris
 import { clouds, animated, polygraph } from "../utils/dataURIs";
+import {
+  InfoDAta,
+  clientData,
+  Testemoninalslist,
+  transitionStyles,
+  serviceData,
+} from "../utils/dataJSON";
 
 export default function Home() {
   const [load, SetLoad] = React.useState(1);
   const [initload, SetInitload] = React.useState(0);
   const [inProp, setInProp] = React.useState(false);
-  const transitionStyles = {
-    entering: { opacity: 1, transform: `translate(0px,0px)` },
-    entered: { opacity: 1, transform: `translate(0px,0px)` },
-    exiting: { opacity: 0, transform: `translate(0px,-150px)` },
-    exited: { opacity: 0, transform: `translate(0px,-150px)` },
-  };
-
-  const Testemoninalslist = [
-    { nameof: "Tina", testement: "", schoolname: "Easy English" },
-    { nameof: "name", testement: "", schoolname: "Vaal techincal" },
-    { nameof: "name", testement: "", schoolname: "SAFIIT" },
-    { nameof: "name", testement: "", schoolname: "Mechatronics Acedemy" },
-    { nameof: "name", testement: "", schoolname: "MJR Training" },
-    { nameof: "name", testement: "", schoolname: "Sandton Technical" },
-  ];
 
   return (
     <>
@@ -100,66 +83,7 @@ export default function Home() {
                 spacing={2}
                 style={{ margin: "0px" }}
               >
-                {[
-                  {
-                    title: "10 years of experience",
-                    list: [
-                      "Accredited more than 30 institutions",
-                      "Worked with kindergartens to universities",
-                      "Registered more than 20 companies and counting",
-                      "We link providers to accredited learning material developers",
-                      "We outsource assessors/moderators to providrs who need them",
-                    ],
-                    icon: (
-                      <Schedule
-                        color="secondary"
-                        style={{
-                          fontSize: "144px",
-                          margin: "0px auto",
-                          padding: "0px 0px 15px 0px",
-                        }}
-                      />
-                    ),
-                  },
-                  {
-                    title: "Software powered accreditation",
-                    list: [
-                      "Smart technology, powering our accreditation process",
-                      "Quick delivery for accreditation processes",
-                      "Little to no room for errors",
-                      "Our software is tried and tested to assure maximum performance",
-                    ],
-                    icon: (
-                      <Android
-                        style={{
-                          fontSize: "144px",
-                          margin: "0px auto",
-                          padding: "0px 0px 15px 0px",
-                          color: "var(--qunit)",
-                        }}
-                      />
-                    ),
-                  },
-                  {
-                    title: "Customer Service you won’t find anywhere else",
-                    list: [
-                      `A dedicated team who’ll address your queries`,
-                      "All-round customer support",
-                      "Frequent updates on your service progress",
-                      "Mentorship to entrepreneurs who buy educational franchises intending to exist",
-                    ],
-                    icon: (
-                      <People
-                        color="primary"
-                        style={{
-                          fontSize: "144px",
-                          margin: "0px auto",
-                          padding: "0px 0px 15px 0px",
-                        }}
-                      />
-                    ),
-                  },
-                ].map((elem, index) => {
+                {InfoDAta.map((elem, index) => {
                   return (
                     <Grid
                       item
@@ -207,16 +131,7 @@ export default function Home() {
                   <span style={{ color: "var(--tertairy)" }}>Our</span> Clients
                 </Typography>
               </Grid>
-              {[
-                { imgPath: "/clients/mjr.png", alt: "MJR" },
-                { imgPath: "/clients/saf.png", alt: "SAFIIT" },
-                { imgPath: "/clients/jintek.png", alt: "Jintek" },
-                { imgPath: "/clients/vaal.jpg", alt: "VTI" },
-                { imgPath: "/clients/high.jpg", alt: "HTC" },
-                { imgPath: "/clients/easy.jpg", alt: "EASY English" },
-                { imgPath: "/clients/sandton.png", alt: "Sandton technical" },
-                { imgPath: "/clients/mecha.png", alt: "MDA" },
-              ].map((elem, index) => {
+              {clientData.map((elem, index) => {
                 return (
                   <Grid
                     item
@@ -313,26 +228,7 @@ export default function Home() {
                 Accreditation Services
               </Typography>
             </Grid>
-            {[
-              {
-                title: "Umalusi Accreditation",
-                description: "",
-                price: "R25,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "QCTO Accreditation",
-                description: "",
-                price: "R15,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "SETA Programme Accreditation",
-                description: "",
-                price: "R5,000 per programme",
-                Servicetype: "Accreditation",
-              },
-            ].map((elem, index) => {
+            {serviceData.first.map((elem, index) => {
               return (
                 <Grid
                   item
@@ -354,20 +250,7 @@ export default function Home() {
                 Registrations
               </Typography>
             </Grid>
-            {[
-              {
-                title: "CSD with Teasury Registration",
-                description: "",
-                price: "R2,000",
-                Servicetype: "Registration",
-              },
-              {
-                title: "Company Registration",
-                description: "",
-                price: "R1,800",
-                Servicetype: "Registration",
-              },
-            ].map((elem, index) => {
+            {serviceData.second.map((elem, index) => {
               return (
                 <Grid
                   item
@@ -389,20 +272,7 @@ export default function Home() {
                 Other Services
               </Typography>
             </Grid>
-            {[
-              {
-                title: "Tax Clearance",
-                description: "",
-                price: "R2,000",
-                Servicetype: "Accreditation",
-              },
-              {
-                title: "Acquisition of SARS report",
-                description: "",
-                price: "R1,500",
-                Servicetype: "Accreditation",
-              },
-            ].map((elem, index) => {
+            {serviceData.third.map((elem, index) => {
               return (
                 <Grid
                   item
